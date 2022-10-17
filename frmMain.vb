@@ -21,12 +21,6 @@ Public Class frmMain
     Dim hWnd As IntPtr
     Dim ox, oy, window_h, window_w As Integer
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-
-
-
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
@@ -36,7 +30,9 @@ Public Class frmMain
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Timer1.Start()
+        If (IO.File.Exists("testdata/eng.traineddata")) = False Then
+            IO.File.WriteAllBytes("testdata/eng.traineddata", My.Resources.eng)
+        End If
 
     End Sub
 
